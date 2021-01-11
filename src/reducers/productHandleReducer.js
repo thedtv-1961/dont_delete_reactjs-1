@@ -1,9 +1,9 @@
 import { PRODUCT_TOGGLE } from "../actions/actionType";
 
-const productHandle = (state = {}) => {
-    switch(state.type){
+const productHandle = (state = {}, action) => {
+    switch(action.type){
         case PRODUCT_TOGGLE:
-            return state.productSelected; // ==> productSelected vi` ben `action/index.js showProductDetail() return {type , productSelected}`
+            return action.productSelected; // ==> productSelected vi` ben `action/index.js showProductDetail() return {type , productSelected}`
         default:
             return state;
     }
