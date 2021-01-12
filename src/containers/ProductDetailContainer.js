@@ -7,7 +7,11 @@ class ProductDetailContainer extends Component {
     }
 
     render() {
-        console.log(this.props.product.id);
+        if (!this.props.product) {
+            return(
+                <strong>no product seleted</strong>
+            );
+        }
         return (
             <table>
                 <tbody>
@@ -17,15 +21,15 @@ class ProductDetailContainer extends Component {
                     </tr>
                     <tr>
                         <td>name: </td>
-                        <td>x</td>
+                        <td>{ this.props.product.name }</td>
                     </tr>
                     <tr>
                         <td>price: </td>
-                        <td>x</td>
+                        <td>{ this.props.product.price }</td>
                     </tr>
                     <tr>
                         <td>description: </td>
-                        <td>x</td>
+                        <td>{ this.props.product.description }</td>
                     </tr>
                 </tbody>
             </table>
