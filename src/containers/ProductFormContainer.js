@@ -1,6 +1,9 @@
 import { Component } from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addNewProduct } from "../actions";
 
-export default class ProductFormContainer extends Component {
+class ProductFormContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,11 +27,17 @@ export default class ProductFormContainer extends Component {
     handleChange = (e) => {
         if(e.target.type === 'checkbox' && (e.target.name === 'tag1' || e.target.name === 'tag2' || e.target.name === 'tag3')) {
             this.setState({
-                [e.target.name] : e.target.checked ? e.target.value : null
+                product: {
+                    ...this.state.product,
+                    [e.target.name] : e.target.checked ? e.target.value : null
+                }
             });
         } else {
             this.setState({
-                [e.target.name] : e.target.value
+                product:{
+                    ...this.state.product,
+                    [e.target.name] : e.target.value
+                }
             });
         }
     }
@@ -92,6 +101,12 @@ export default class ProductFormContainer extends Component {
                             <label htmlFor="tag3"> #tag3</label>
                         </td>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="button" onClick={() => this.props.onClickSubmit(this.state.product)}>Save</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <hr></hr>
@@ -147,3 +162,14 @@ export default class ProductFormContainer extends Component {
         </form>);       
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(
+        {
+            onClickSubmit: addNewProduct
+        },
+        dispatch
+    );
+}
+
+export default connect(null, mapDispatchToProps)(ProductFormContainer);

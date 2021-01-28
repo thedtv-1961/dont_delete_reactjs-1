@@ -1,0 +1,2 @@
+export const PRODUCT_FROM_ADD = 'PRODUCT_FROM_ADD';
+export const PRODUCT_FROM_GET = 'PRODUCT_FROM_GET';
