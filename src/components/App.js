@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import ProductListContainer from "../containers/ProductListContainer";
 import ProductDetailContainer from "../containers/ProductDetailContainer";
 import ProductFormContainer from "../containers/ProductFormContainer";
+import ProductFormDetailContainer from "../containers/ProductFormDetailContainer";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Switch>
           <Route exact path="/">
             <div>
+              <ProductFormDetailContainer />
+              <hr/>
               <ProductDetailContainer />
               <hr />
               <ProductListContainer />
