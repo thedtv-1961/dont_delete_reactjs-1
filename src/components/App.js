@@ -4,6 +4,7 @@ import ProductListContainer from "../containers/ProductListContainer";
 import ProductDetailContainer from "../containers/ProductDetailContainer";
 import ProductFormContainer from "../containers/ProductFormContainer";
 import ProductFormDetailContainer from "../containers/ProductFormDetailContainer";
+import TodoListContainer from "../containers/TodoListContainer";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </li>
           <li>
             <Link to="/form">Form</Link>
+          </li>
+          <li>
+            <Link to="/todos">Todo List</Link>
           </li>
         </ul>
         <hr />
@@ -30,6 +34,9 @@ function App() {
           </Route>
           <Route path="/form">
             <ProductFormContainer />
+          </Route>
+          <Route path="/todos">
+            <TodoListContainer />
           </Route>
         </Switch>
       </Router>
