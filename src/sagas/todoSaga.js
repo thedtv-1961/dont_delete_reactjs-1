@@ -6,10 +6,10 @@ function* todoSaga() {
     try {
         const todos = yield Api.getToDos();
         console.log(todos);
-        put(FETCH_TODO_LIST_SUCCESS, {todos})
+        yield put({type: FETCH_TODO_LIST_SUCCESS, todos});
     } catch(ex) {
         console.log(ex);
-        put(FETCH_TODO_LIST_FAIL, {ex})
+        yield put({type: FETCH_TODO_LIST_FAIL, ex});
     }
 }
 

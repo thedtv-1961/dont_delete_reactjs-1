@@ -8,10 +8,13 @@ class TodoListContainer extends Component {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.loadTodo();
+    }
+
     render(){
         return (<div>
             <h4>Todo List</h4>
-            <button type="button" onClick={() => this.props.loadTodo()}>fetch</button>
             <table border="1">
                 <thead>
                     <tr>
@@ -23,10 +26,10 @@ class TodoListContainer extends Component {
                 <tbody>
                     {this.props.todos.map((todo, index) => {
                         return(
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
+                            <tr key={todo.id}>
+                                <td>{todo.id}</td>
+                                <td>{todo.name}</td>
+                                <td>[{todo.is_done ? '+' : '-'}]</td>
                             </tr>
                         );
                     })}
