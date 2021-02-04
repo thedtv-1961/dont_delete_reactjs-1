@@ -5,6 +5,7 @@ import ProductDetailContainer from "../containers/ProductDetailContainer";
 import ProductFormContainer from "../containers/ProductFormContainer";
 import ProductFormDetailContainer from "../containers/ProductFormDetailContainer";
 import TodoListContainer from "../containers/TodoListContainer";
+import TodoFormContainer from "../containers/TodoFormContainer";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <ProductFormContainer />
           </Route>
           <Route path="/todos">
+            <TodoFormContainer />
             <TodoListContainer />
           </Route>
         </Switch>

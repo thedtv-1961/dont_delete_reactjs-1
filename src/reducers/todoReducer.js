@@ -1,4 +1,4 @@
-import { TODO_FETCH_SUCCESS, TODO_FETCH_FAIL } from '../actions/todoType';
+import { TODO_FETCH_SUCCESS, TODO_FETCH_FAIL, TODO_ADD_SUCCESS, TODO_ADD_FAIL } from '../actions/todoType';
 
 const todoReducer = (data = {products: [], is_loading: true}, action) => {
     switch(action.type) {
@@ -13,6 +13,14 @@ const todoReducer = (data = {products: [], is_loading: true}, action) => {
             return {
                 is_loading: true,
                 error: action.error,
+            }
+        case TODO_ADD_SUCCESS:
+            return {
+                message: action.message
+            }
+        case TODO_ADD_FAIL:
+            return {
+                error: action.error
             }
         default:
             return data;

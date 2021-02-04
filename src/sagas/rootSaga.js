@@ -1,6 +1,7 @@
-import { call } from "redux-saga/effects";
-import { watchFetchTodoApi } from "./todoSaga";
+import { call, fork } from "redux-saga/effects";
+import { watchFetchTodoApi, watchPostTodoApi } from "./todoSaga";
 
 export default function* rootSaga() {
-    yield call(watchFetchTodoApi);
+    yield fork(watchFetchTodoApi);
+    yield fork(watchPostTodoApi);
 }
